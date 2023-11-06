@@ -11,9 +11,9 @@ sky:
   alioss:
     endpoint: oss-cn-hangzhou.aliyuncs.com
 #    access-key-id: LTAI5tPeFLzsPPT8gG3LPW64
-    access-key-id: LTAI5tSS8hfFVqDQsRM79Mgc
+    access-key-id: 
 #    access-key-secret: U6k1brOZ8gaOIXv3nXbulGTUzy6Pd7
-    access-key-secret: Igsl7vrTxI0FZLBtB3ApdfmSHbwhXU
+    access-key-secret: 
     bucket-name: lu55by-bucket-01
   # Redis configuration
   redis:
