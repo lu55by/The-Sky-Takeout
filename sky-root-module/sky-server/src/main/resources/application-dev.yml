@@ -1,0 +1,36 @@
+sky:
+  # Datasource configuration
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    host: localhost
+    port: 3306
+    database: sky_take_out
+    username: lu55by
+    password: insideoutme8mysql
+  # AliOSS configuration
+  alioss:
+    endpoint: oss-cn-hangzhou.aliyuncs.com
+#    access-key-id: LTAI5tPeFLzsPPT8gG3LPW64
+    access-key-id: LTAI5tSS8hfFVqDQsRM79Mgc
+#    access-key-secret: U6k1brOZ8gaOIXv3nXbulGTUzy6Pd7
+    access-key-secret: Igsl7vrTxI0FZLBtB3ApdfmSHbwhXU
+    bucket-name: lu55by-bucket-01
+  # Redis configuration
+  redis:
+    host: localhost
+    port: 6379
+    password: insideoutme8redis
+    # There's 16 databases in redis by default, and each database is corresponded with index value
+    # select 10 means selecting the database of index 10
+    database: 10
+  # wechat configuration
+  wechat:
+    appid: wxe25305428b019ab7
+    secret: 62b989b42245c2037f33bf7dd7995c3d
+    mchid: 1561414331
+    mchSerialNo: 4B3B3DC35414AD50B1B755BAF8DE9CC7CF407606
+    privateKeyFilePath: D:\apiclient_key.pem
+    apiV3Key: CZBK51236435wxpay435434323FFDuv3
+    weChatPayCertFilePath: D:\wechatpay_166D96F876F45C7D07CE98952A96EC980368ACFC.pem
+    notifyUrl: https://www.weixin.qq.com/wxpay/pay.php
+    refundNotifyUrl: https://www.weixin.qq.com/wxpay/pay.php
