@@ -8,15 +8,14 @@ import com.sky.result.Result;
 import com.sky.service.EmployeeService;
 import com.sky.utils.JwtUtil;
 import com.sky.vo.EmployeeLoginVO;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.impl.DefaultClaims;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * 员工管理
@@ -33,9 +32,8 @@ public class EmployeeController {
 
     /**
      * 登录
-     *
-     * @param employeeLoginDTO
-     * @return
+     * @param employeeLoginDTO The employeeLoginDTO object
+     * @return The Result object containing EmployeeLoginVO object
      */
     @PostMapping("/login")
     public Result<EmployeeLoginVO> login(@RequestBody EmployeeLoginDTO employeeLoginDTO) {
@@ -44,7 +42,7 @@ public class EmployeeController {
         Employee employee = employeeService.login(employeeLoginDTO);
 
         //登录成功后，生成jwt令牌
-        Map<String, Object> claims = new HashMap<>();
+        Claims claims = new DefaultClaims();
         claims.put(JwtClaimsConstant.EMP_ID, employee.getId());
         String token = JwtUtil.createJWT(
                 jwtProperties.getAdminSecretKey(),
@@ -62,12 +60,11 @@ public class EmployeeController {
     }
 
     /**
-     * 退出
-     *
-     * @return
+     * 退出登录
+     * @return The Result object
      */
     @PostMapping("/logout")
-    public Result<String> logout() {
+    public Result<Object> logout() {
         return Result.success();
     }
 
